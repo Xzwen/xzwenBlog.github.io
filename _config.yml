@@ -5,8 +5,8 @@ header-img: img/home-bg.jpg
 email: xzwen_wy@163.com
 description: "关于前端与设计、黑客与画家 | 谢志文，Web & Mobile Lover，Software Engineer，UX Designer | 这里是谢志文的个人博客，与你一起发现更大的世界。"
 keyword: "谢志文, Vinter谢志文, Vinter, 谢志文的博客, Vinter Blog, 博客, 个人网站, 互联网, Web, JavaScript, 前端, 设计"
-url: "https://huangxuan.me"              # your host, for absolute URL
-baseurl: "/xzwenBlog.github.io"                             # for example, '/blog' if your blog hosted on 'host/blog'
+url: "http://vinterx.com"              # your host, for absolute URL
+baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
 future: true
@@ -74,7 +74,7 @@ ga_domain: huangxuan.me
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "For the next quantum leap<br>离开世界之前，一切都是过程"
-sidebar-avatar: "/xzwenBlog.github.io/img/vinter-avatar.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: "/img/vinter-avatar.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
 featured-tags: true                     # whether or not using Feature-Tags
