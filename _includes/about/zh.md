@@ -1,7 +1,7 @@
-> 写写代码，做做设计，  
-> 昆虫家族的蚊子，保持饥饿，保持活跃。
+> 生命不息，学而不止，  
+> 人生中有些事情不竭尽全力去做，永远不知道自己有多优秀。
 
-Hello，我是谢志文，昆虫类，蚊子家族一员，多出没于Github、微博、知乎、CSDN、简书、Stack overflow、[博客](https://xzwen.github.io/xzwenBlog.github.io/)、等地带，一直吸取能量中，准备释放终极大招。
+Hello，我是谢志文，欢迎来到我的博客。本人多出没于Github、微博、知乎、CSDN、简书、Stack overflow、[博客](https://xzwen.github.io/xzwenBlog.github.io/)、等地带，一直吸取能量中，准备释放终极大招。
 
 
 ##### Talks

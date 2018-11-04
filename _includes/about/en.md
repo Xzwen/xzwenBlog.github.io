@@ -1,9 +1,9 @@
 
 
-> A hungry mosquito.
+> Where there is life, there is learning.
+> There are some things in life that you never try your best to do, You never know how good you are.
 
-
-Hi, I am Vinter
+Hi, I am Vinter, welcome to my blog.
 
 ##### Talks
 
