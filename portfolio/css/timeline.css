@@ -163,15 +163,6 @@ body, html {
 	background-size: 20px;
 }
 
-.i-jquery:before {
-	content: "";
-	display: block;
-	width: 40px;
-	height: 40px;
-	background: url("../images/logo-jquery.png") 50% 50% no-repeat;
-	background-size: 20px;
-}
-
 .i-react:before {
 	content: "";
 	display: block;
