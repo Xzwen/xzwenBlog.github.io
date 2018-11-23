@@ -4,7 +4,7 @@
 >
 > 生命不息，学而不止。
 
-Hi，我是谢志文，欢迎来到我的博客。本人多出没于Github、微博、知乎、CSDN、简书、Stack overflow、[博客](https://xzwen.github.io/xzwenBlog.github.io/)、等地带，一直吸取能量中，准备释放终极大招。
+Hi，我是谢志文，欢迎来到我的博客。本人多出没于Github、微博、知乎、CSDN、简书、Stack overflow、[博客](https://xzwen.github.io/xzwenBlog.github.io/)等地带，一直吸取能量中，准备释放终极大招。
 
 
 ##### Talks
