@@ -115,6 +115,7 @@ fetch('https://mywebsite.com/endpoint/', {
 2. 手势响应系统用起来比较复杂
 3. 配置顶部滑动导航器，自带的createMaterialTopTabNavigator使用可控性差，样式不好看，建议使用react-native-scrollable-tab-view。
 4. app的启动白屏时间，可以通过react-native-splash-screen来解决，原理为首先加载一个广告屏，首屏资源加载完后再进入应用，这个是现有app的基本处理方案，用户体验很好。。。
+5. 样式存在局限性，而且ios和安卓的部分样式也有些差别，例如设置阴影，安卓做不出简单色彩多样的阴影，而ios则可以设置；样式的书写方式和常规css写法也不相同。
 
 ## 资源分享
 React Native相关的库：[awesome-react-native](http://www.awesome-react-native.com/)
