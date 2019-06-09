@@ -182,17 +182,19 @@ $.ajax（支持浏览器），$.ajax为jQuery对XMLHttpRequest对象进行兼容
 ## Node
 [官网 v10.x](https://nodejs.org/zh-cn/)<br/>
 框架<br/>
-**Express**
+**Express**<br/>
 [Express v4.X](http://www.expressjs.com.cn/)<br/>
-**Egg**
+**Egg**<br/>
 [Egg v2.x](https://eggjs.org/zh-cn/)<br/>
 [Sequelize v5.x](http://docs.sequelizejs.com/)<br/>
-**koa**
+**koa**<br/>
 [Koa v2.x](https://koajs.com)<br/>
 
 ## github
 [Github](https://github.com/Xzwen)<br/>
 [Git](https://git-scm.com/)<br/>
+[jekyll v3.x](https://jekyllrb.com/)，本blog就是基于jekyll + github page搭建。<br/>
+[Hexo](https://hexo.io/zh-cn/)，脚手架hexo-cli，它是和jekyll一样可以快速搭建静态博客页面的库。<br/>
 
 ## Database
 #### Mongodb

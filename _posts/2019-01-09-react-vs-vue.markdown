@@ -23,9 +23,78 @@ React起源于FaceBook的内部项目，因为该公司对市场上所有 JavaSc
 <br/>
 Vue的作者是尤大大（尤雨溪），简直是国人的骄傲，造福了我们这些前端开发工作者，官方文档更是介绍的非常详细，而且还是中文啊，相对于React或者Angular是更容易上手的，给尤大大点个赞。
 
+## 渲染函数
+渲染函数是Vue和React模板渲染的底层，React会将JSX，Vue会将模板template转化为渲染函数。createElement返回的是VNode(虚拟dom)，里面包含了DOM节点的信息。<br/>
+**React**
+```
+const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);
+
+
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+
+//  React.createElement() 这个方法首先会进行一些避免bug的检查，之后会返回一个类似下面
+// 注意: 以下示例是简化过的（不代表在 React 源码中是这样）
+const element = {
+  type: 'h1',
+  props: {
+    className: 'greeting',
+    children: 'Hello, world'
+  }
+};
+```
+**Vue**
+```
+  <h1 class="greeting">
+    Hello, world!
+  </h1>
+  
+ Vue.component('HComponet', {
+    render: function(createElement) {
+        return createElement('h1', {
+            class: {
+                greeting: true
+            },
+            domProps: {
+                innerHTML: 'Hell0, world!'
+            }
+        })
+    }
+ })
+```
+## 生命周期
+React和Vue的生命周期这里不做详细比较，基本是相同的，Vue的Created、mounted、beforeUpdate、updated、beforeDestroy等对应React的componentWillMount、componentDidMount、componetWillUpdate、componentDidUpdate、componentWillUnmount。借用官网的图片如下。。。<br/>
+**React**
+![React生命周期](https://vinter.oss-cn-shenzhen.aliyuncs.com/blog/react.webp "React生命周期")
+**Vue**
+![Vue生命周期](https://vinter.oss-cn-shenzhen.aliyuncs.com/blog/vue.png "Vue生命周期")
+
 ## 组件化
 组件化思想，使代码变得高效、高复用以及容易理解。组件可以嵌套，循环还可以条件判断等等，代码讲究的是高内聚低耦合，我想组件化就是为它而生啊。
 <br/>
+**React**<br/>
+函数就是组件，注意函数名大写，因为组件都是大写字母开头<br/>
+```
+function WarnComponent(props) {
+//  隐藏和展示组件
+  if (!props.warn) {
+    return null;
+  }
+
+  return (
+    <div className="warning">
+      Warning!
+    </div>
+  )
+}
+```
 React的组件主要用JSX语法替代了JavaScript，虽然不一定使用JSX，但是它执行快，类型安全以及编写模板高效快速的特点，不得不使你喜欢，甚至使用React就会依赖上它，虽然JSX入手有点困难，习惯了还是很容易理解的。原理就是JSX构建的组件对象，实现一个render()的方法，并且根据输入的数据返回相应的结果，render()方法通过this.props访问这些输入的数据。附上一段JSX的代码
 ```
 import React from 'react'
@@ -84,12 +153,22 @@ export default connect( mapStateToProps, mapDispatchToProps )(Meeting)
 );
 ```
 <br/>
-Vue的组件化就简单的多了，通过import组件到指定页面，然后components注册就可以在template模板中使用了，至于嵌套，循环组件等，就需要自己去想如何更高效的利用这些组件了。
+**Vue**<br/>
+Vue的组件化就简单的多了，一般采用模板。<br/>
+```
+<template>
+    <div class="warning">
+      Warning!
+    </div>
+</template>
+```
+通过import组件到指定页面，然后components注册就可以在template模板中使用了，至于嵌套，循环组件等，就需要自己去想如何更高效的利用这些组件了。
 <br/>
 
 ## 路由系统
 路由系统它们两者写法有很大区别，但是据React官网介绍，可以写成与Vue类似的结构，但是一般不推荐。
 <br/>
+**React**<br/>
 React的路由其实也是一个组件，这里主要讲react-router3，官网介绍的比较详细，我这里就不再详细讲解，使用的时候需要调用this.props.children到指定位置，表示组件的所有子节点。附上路由代码
 ```
 import React from 'react'
@@ -131,6 +210,7 @@ export default routes
 //  注意：需要引入到组件中使用
 ```
 <br/>
+**Vue**<br/>
 Vue 的路由就是new Router({})，通过\<router-view/\>标签来使用，附上代码
 ```
 export default new Router({
@@ -154,10 +234,33 @@ export default new Router({
 })
 ```
 <br/>
-至于那些高阶动态路由，嵌套路由，路由守卫就不一一介绍了 官网介绍的很详细
+至于那些高阶动态路由，嵌套路由，路由守卫就不一一介绍了 官网介绍的很详细。
 
-## 数据传递(Redux VS Vuex)
+## 数据传递
+#### props传参对比
+**React**<br/>
+```
+<!-- 父传子 -->
+<Child handle={[参数]}/>
+
+<!-- 子传父 -->
+<Child handle={[参数]}> //  参数 ==》 callback函数
+```
+是不是感觉是一样的，只不过父传子有点技巧，使用callback传参，即传递给子组件的是callback函数，子组件调用callback(val)，父组件取val，callback原理就不多讲了，其实用的方法就一个props，如果你想通过Props进行组件传参，那么callback是核心思想，并且它能传递函数，组件，对象、数组等任何类型参数。<br/>
+**Vue**<br/>
+```
+<!-- 父传子 -->
+<Child data="[参数]"/>  //  props 方法
+
+<!-- 子传父 -->
+child.vue
+this.$emit('handle', val) //    vm.$emit('handle', val)
+```
+Vue就遵循自己的方法，例子显而易懂，这里不做多讲解。<br/>
+
+#### (Redux VS Vuex)
 <br/>
+**React**
 React数据分三步走：action定义变量，即dispatch事件；reducer写逻辑部分，改变state内容；store即创建store，核心为combineReducers() 和createStore()，最后export导出到需要地方
 ```
 const todoApp = combineReducers({
@@ -207,6 +310,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 
 <br/>
+**Vue**
 Vue结构就比较简单，四大金刚：state文件，状态初始化；action文件，dispatch触发，异步请求在这里执行；mutation文件，直接改变state状态，触发页面更新；getter文件，这个文件方便各页面接受数据的，四大金刚对应的辅助函数 (mapState, mapActions, mapMutations, mapGetters)
 ```
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
@@ -224,9 +328,71 @@ export default {
 
 最后附上我的React的[Demo](https://github.com/Xzwen/create-react-app)地址, 主要通过create-react-app脚手架搭建的。这里Vue的Demo就不展示了，因为通过vue-cli可以很快速的搭建起来。
 
+## React的组合和属性 VS Vue插槽和路由
+**React**
+React组件组合
+```
+function SideBar(prop) {
+    return <div>
+        {prop.header}
+        {prop.footer}
+        {prop.children}
+    </div>
+}
+
+function Footer(prop) {
+    return <div>{prop.footer}</div>
+}
+
+class Parent extends Component {
+    render() {
+        return (
+            <SideBar 
+            header={ <div>hello, world!</div> }
+            footer={ <Footer footer='footer'/> }
+            >
+                <div>child</div>
+            </SideBar>
+        )
+    }
+}
+```
+React的路由渲染
+```
+function Bar(prop) {
+    return (
+        <div>
+            {prop.children}
+        </div>
+    )
+}
+```
 
 
+**Vue**
+Vue的插槽
+```
+//  parent
+<side-bar>
+<template #header='{headerData}'>
+    <div>{{headerData}}</div>
+</template>
+<template #footer='{footerData}'>
+    <div>{{footerData}}</div>
+</template>
+</side-bar>
 
+// son
+<slot name='header' :headerData="'header'"/>
+<slot name='footer' :footerData="'footer'"/>
+```
+
+Vue的路由渲染
+```
+<router-view/>
+```
+
+从上面可以比较出来，React的核心就是利用函数传参和组建的属性来进行组合嵌套，请记住，组件可以接受任意元素，包括基本数据类型、React 元素或函数。Vue则是利用插槽的语法。
 
 
 > Life sucks when you're ordinary.
