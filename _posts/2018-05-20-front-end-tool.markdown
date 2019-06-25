@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "前端常用工具介绍及区别"
-subtitle: "An article about fronends tool of npm、yarn、cnpm、webpack、gulp and so on"
+subtitle: "An article about frontends tool of npm、yarn、cnpm、webpack、gulp and so on"
 date: 2018-05-20 21:00:00
 author: "Vinter"
 catalog: true
