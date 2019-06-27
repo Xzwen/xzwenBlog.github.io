@@ -3,8 +3,8 @@ title: Vinter Blog
 SEOTitle: 谢志文的博客 | Vinter Blog
 header-img: img/home-bg.jpg
 email: xzwen_wy@163.com
-description: "关于前端与设计、黑客与画家 | 谢志文，Web & Mobile Lover，Software Engineer，UX Designer | 这里是谢志文的个人博客，与你一起发现更大的世界。"
-keyword: "谢志文, Vinter谢志文, Vinter, 谢志文的博客, Vinter Blog, 博客, 个人网站, 互联网, Web, JavaScript, 前端, 设计"
+description: "关于前端后端以及跨平台开发 | Vinter，Web & Mobile Lover，Software Engineer，UI Designer | 这里是谢志文的个人博客，与你一起发现更大的世界。"
+keyword: "谢志文, Vinter, 志文, 谢志文的博客, Vinter Blog, 博客, 个人网站, Web, JavaScript, 前端, 后端, 设计, 互联网"
 url: "http://vinterx.com"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 

@@ -2,7 +2,7 @@
 layout: post
 title: "前端MVVM模式原理"
 subtitle: "Model-View-ViewModel"
-date: 2018-08-10 22:00:00
+date: 2018-09-10 22:00:00
 author: "Vinter"
 catalog: true
 tags:
