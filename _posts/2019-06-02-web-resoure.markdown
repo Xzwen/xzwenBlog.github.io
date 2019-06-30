@@ -44,6 +44,8 @@ UI框架<br/>
 移动端UI框架<br/>
 [mint-ui v2.x](http://mint-ui.github.io/#!/zh-cn)<br/>
 [cube-ui v1.x](https://didi.github.io/cube-ui/)<br/>
+SEO<br/>
+[vue-meta-info](https://github.com/muwoo/vue-meta-info)
 #### React
 [React官网 v16.x](https://react.docschina.org/)<br/>
 脚手架[Create React App v3.x](https://facebook.github.io/create-react-app/)<br/>

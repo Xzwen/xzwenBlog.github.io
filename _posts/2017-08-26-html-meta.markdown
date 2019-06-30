@@ -8,4 +8,224 @@ catalog: true
 tags:
     - HTML
     - meta
+    - SEO
 ---
+
+## 概述
+meta标签元素可提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词，最大的作用是能够做搜索引擎优化（SEO）。<br/>
+meta标签永远位于 head 元素内部。元数据总是以名称/值的形式被成对传递的。
+
+## http-equiv
+http-equiv相当于http的文件头作用，它可以向浏览器传回一些有用的信息，以帮助浏览器正确地显示网页内容。
+
+#### content-type 和 charset（重要）
+设定页面使用的字符集
+
+HTML 4.01
+```
+<meta http-equiv="content-Type" content="text/html; charset=UTF-8">
+```
+
+HTML5(charset 是HTML5的新属性)
+```
+<meta charset="UTF-8">
+```
+
+#### X-UA-Compatible（重要）
+IE8的专用标记，用来指定IE8浏览器去模拟某个特定版本的IE浏览器的渲染方式，以此来解决部分兼容问题。
+
+```
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+```
+以上代码告诉IE浏览器，无论是否用DTD声明文档标准，IE8/9都会以IE7引擎来渲染页面。
+
+```
+<meta http-equiv="X-UA-Compatible" content="IE=8"> 
+```
+以上代码告诉IE浏览器，IE8/9都会以IE8引擎来渲染页面。
+
+```
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+```
+以上代码告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。
+
+```
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+```
+以上代码IE=edge告诉IE使用最新的引擎渲染网页，chrome=1则可以激活Chrome Frame。
+
+PS：谷歌添加一个插件：Google Chrome Frame（谷歌内嵌浏览器框架GCF），这个插件可以让用户的IE浏览器不变，但用户在浏览网页时，实际上使用的是Google Chrome浏览器内核，而且支持IE6、7、8等多个版本的IE浏览器。
+
+#### expires
+设定网页的过期时间。
+
+```
+<meta http-equiv="expires"content="Fri,12Jan200118:18:18GMT">
+```
+PS：必须使用GMT的时间格式
+
+#### refresh（重要）
+自动刷新并指向新页面
+
+```
+<meta http-equiv="Refresh" content="2; URL=https://www.baidu.com">
+```
+PS：2代表页面停留2秒后跳转到后面的网址上
+
+#### set-cookie
+如果网页过期，那么自动删除本地cookie。
+
+```
+<meta http-equiv="Set-Cookie" content="cookie value=xxx; expires=Friday,12-Jan-200118:18:18GMT; path=/">
+```
+PS：必须使用GMT的时间格式。
+
+#### windows-target
+强制页面在当前窗口中以独立页面显示，可以防止自己的网页被别人当作一个frame页调用，Content选项：_blank、_top、_self、_parent。
+
+```
+<meta http-equiv="Window-target" content="_top">
+```
+
+#### cache-control （重要）
+缓存机制
+
+```
+<meta http-equiv="cache-control" content="no-cache">
+```
++ public：所有内容都将被缓存（客户端和中间代理服务器都可缓存）。具体来说响应可被任何中间节点缓存，如 Browser <-- proxy1 <-- proxy2 <-- Server，中间的proxy可以缓存资源，比如下次再请求同一资源proxy1直接把自己缓存的东西给 Browser 而不再向proxy2要。
++ private：所有内容只有客户端可以缓存，Cache-Control的默认取值。具体来说，表示中间节点（代理服务器）不允许缓存。
++ no-cache：客户端缓存内容，是否使用缓存则需要经过协商缓存来验证决定。表示不使用 Cache-Control的缓存控制方式做前置验证，而是使用 Etag 或者Last-Modified协商缓存来控制缓存。设置了no-cache之后，并不是说浏览器就不再缓存数据，只是浏览器在使用缓存数据时，需要先确认一下数据是否还跟服务器保持一致。
++ no-store：所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存。
++ max-age：max-age=xxx (xxx is numeric)表示缓存内容将在xxx秒后失效
++ s-maxage（单位为s)：同max-age作用一样，只在代理服务器中生效（比如CDN缓存）。比如当s-maxage=60时，在这60秒中，即使更新了CDN的内容，浏览器也不会进行请求。max-age用于普通缓存，而s-maxage用于代理缓存。s-maxage的优先级高于max-age。如果存在s-maxage，则会覆盖掉max-age和Expires header。
++ max-stale：能容忍的最大过期时间。max-stale指令标示了客户端愿意接收一个已经过期了的响应。如果指定了max-stale的值，则最大容忍时间为对应的秒数。如果没有指定，那么说明浏览器愿意接收任何age的响应（age表示响应由源站生成或确认的时间与当前时间的差值）。
++ min-fresh：指示客户端不接收响应时间小于当前时间加上指定时间（min-fresh）的响应。
+
+![缓存流程图](https://upload-images.jianshu.io/upload_images/5097943-3ac31853ce914302.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/820/format/webp)
+
+## name
+#### author（重要）
+标注网页的作者
+
+```
+<meta name="author" content="vinter">
+```
+#### keywords（重要）
+页面关键词，用于被搜索引擎收录
+
+```
+<meta name="keywords" content="vinter blog,前端,HTML,css,js,vue,react">
+```
+#### description（重要）
+页面的描述，用于被搜索引擎收录，搜索引擎会把这个描述显示在搜索结果中。
+
+```
+<meta name="description" content="新闻中心,包含有时政新闻、国内新闻、国际新闻、社会新闻、时事评论、新闻图片、新闻专题、新闻论坛、军事、历史、的专业时事报道门户网站">
+```
+#### viewport（重要）
+用于控制页面缩放，常用于移动webapp开发。手机浏览器装载页面其实是放在一个中间件里面的，而这个中间件就是viewport。
+
+```
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+```
+
+**viewport涉及的单位**
+
++ 分辨率：指设备显示器所能显示的像素有多少
++ 物理分辨率：指设备显示器所能显示最高的像素数
++ DPI （Dots Per Inch）：每英寸的点数密度
++ PPI（Pixels Per Inch）：每英寸的像素点
++ DIP/DP（device independent pixels）: 设备独立像素, 这个由设备硬件决定
++ devicePixelRatio ： 设备像素比 （ window.devicePixelRatio = 物理分辨率 / dip ）
+
+PS：在计算机或移动屏幕中提到ppi和dpi其实都一样， 越高的PPI所呈现的内容越清晰。
+
+#### renderer（重要）
+指定双核浏览器默认以何种方式渲染页面。
+
+```
+<meta name="renderer" content="webkit">//默认webkit内核
+<meta name="renderer" content="ie-comp">//默认IE兼容模式
+<meta name="renderer" content="ie-stand">//默认IE标准模式
+```
+PS：360浏览器支持 
+
+#### referrer （重要）
+在页面引入图片、JS 等资源，或者从一个页面跳到另一个页面，都会产生新的 HTTP 请求，浏览器一般都会给这些请求头加上表示来源的 Referrer 字段。Referrer 在分析用户来源时很有用，有着广泛的使用。但 URL 可能包含用户敏感信息，如果被第三方网站拿到很不安全（例如之前不少 Wap 站把用户 SESSION ID 放在 URL 中传递，第三方拿到 URL 就可以看到别人登录后的页面）。之前浏览器会按自己的默认规则来决定是否加上 Referrer。
+
+2014 年，W3C 的 Web 应用安全工作组（Web Application Security Working Group）发布了 Referrer Policy 草案，对浏览器该如何发送 Referrer 做了详细的规定。新版 Chrome 已经支持了这份草案，我们终于可以灵活地控制自己网站的 Referrer 策略了。
+
+通过新的 Referrer Policy，我们可以针对第三方网站隐藏 Referrer，也可以只发送来源 URL 的 host 部分。但有一点要记住，新策略允许沉默，但不允许说谎。换句话说，你有权不告诉对方请求从哪儿来，但是不允许用假来源去骗人。不过即便是这样，这也对现有一些 Web 应用程序的安全性造成威胁。不少 Web 应用在限制 Referrer 时允许为空，之前想要发送无 Referrer 请求还要一点点技巧，现在就轻而易举了。
+
++ No Referrer：任何情况下都不发送 Referrer 信息；
++ No Referrer When Downgrade：仅当发生协议降级（如 HTTPS 页面引入 HTTP 资源，从 HTTPS 页面跳到 HTTP 等）时不发送 Referrer 信息。这个规则是现在大部分浏览器默认所采用的；
++ Origin Only：发送只包含 host 部分的 Referrer。启用这个规则，无论是否发生协议降级，无论是本站链接还是站外链接，都会发送 Referrer 信息，但是只包含协议 + host 部分（不包含具体的路径及参数等信息）；
++ Origin When Cross-origin：仅在发生跨域访问时发送只包含 host 的 Referrer，同域下还是完整的。它与 Origin Only 的区别是多判断了是否 Cross-origin。需要注意的是协议、域名和端口都一致，才会被浏览器认为是同域；
++ Unsafe URL：无论是否发生协议降级，无论是本站链接还是站外链接，统统都发送 Referrer 信息。正如其名，这是最宽松而最不安全的策略；
+
+**1.CSP 响应头（http）**
+
+CSP（Content Security Policy），是一个跟页面内容安全有关的规范。在 HTTP 中通过响应头中的 Content-Security-Policy 字段来告诉浏览器当前页面要使用何种 CSP 策略。
+
+```
+Content-Security-Policy: referrer no-referrer|no-referrer-when-downgrade|origin|origin-when-cross-origin|unsafe-url;
+```
+ps: 通过 CSP 头部设置 Origin When Cross-origin 策略时，指令值应该用 origin-when-cross-origin。
+
+**2. meta 标签**
+```
+<meta name="referrer" content="no-referrer|no-referrer-when-downgrade|origin|origin-when-cross-origin|unsafe-url">
+```
+PS: 如果没有给它定义 content 属性，或者 content 属性为空，也会被忽略。如果 content 属性不是合法的取值，浏览器会自动选择 no-referrer 这种最严格的策略。
+
+**3. a标签**
+```
+<a href="http://example.com" referrer="no-referrer|origin|unsafe-url">xxx</a>
+```
+a标签可用的 Referrer 策略只有三种：不传、只传 host 和都传。另外，这样针对单个链接设置的策略优先级比 CSP 和 meta标签要高。
+
+#### generator
+说明网站的采用什么软件制作，规定用于生成文档的一个软件包（不用于手写页面）。
+
+```
+<meta name="generator" content="Microsoft"/>
+```
+
+#### revised
+网页文档的修改时间
+```
+<meta name="revised" content="设计网, 6/24/2015"/>
+```
+
+#### robots
+用来告诉搜索机器人哪些页面需要索引，哪些页面不需要索引。
+
+```
+<meta name="robots" content="none"/>
+```
+取值：all|none|index|noindex|follow|nofollow, 默认all
+
++ all：文件将被检索，且页面上的链接可以被查询；
++ none：文件将不被检索，且页面上的链接不可以被查询；
++ index：文件将被检索；
++ follow：页面上的链接可以被查询；
++ noindex：文件将不被检索，但页面上的链接可以被查询；
++ nofollow：文件将被检索，但页面上的链接不可以被查询。
+
+#### copyright
+
+网站版权信息
+```
+<meta name="copyright" content="本页版权XXX所有。All Rights Reserved">
+```
+
+## schema
+用于翻译 content 属性值的格式。
+
+```
+<meta scheme="format|URI">
+```
+
+**HTML5不支持**。 定义用于翻译 content 属性值的格式。(不推荐使用)
+
