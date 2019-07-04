@@ -1,0 +1,86 @@
+---
+layout: post
+title: "浅谈IoT通讯协议中的MQTT协议"
+subtitle: "The MQTT protocal, a Low power and low bandwidth communication protocol "
+date: 2019-07-02 22:00:00
+author: "Vinter"
+catalog: true
+tags:
+    - MQTT
+    - IOT
+---
+
+> 读书学习是被动，社会学习是主动，当你主动的时候，你就是个王者。
+
+蓝牙通讯app弄完，现在又来了基于MQTT通讯的app，事情就想海绵里的水，挤挤总是有的，但是IT不一样，等你把海绵的水真挤完了，它会给你换个新的湿海绵，你就一个劲不停的挤啊，并且之前那个你还需继续的挤。但是回过头来，你会发现，挤海绵也是有技巧的，你可以用手挤，用手挤又可以分为拧，挤，压等等，也可以用机器挤或者可以叫人帮你一起挤，当然不管哪种方式，都是你一步一个脚印想到并做到的，技术的积累就是在不断探索（就是踩坑和填坑）中堆起来的。
+
+## IoT
+IoT（Internet of things，物联网），物联网技术框架体系中所使用的到的通讯协议主要有：AMQP、JMS、REST、HTTP/HTTPS、COAP、DDS 、MQTT等。
+
+#### HTTP/HTTPS
+HTTP是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。它于1990年提出，经过几年的使用与发展，得到不断地完善和扩展。目前在WWW中使用的是HTTP/1.0的第六版，HTTP/1.1的规范化工作正在进行之中，而且HTTP-NG(Next Generation of HTTP)的建议已经提出。
+
+HTTPS（Hypertext TransferProtocol over Secure Socket Layer，基于SSL(Secure Sockets Layer 安全套接层)的HTTP协议，使用了HTTP协议，但HTTPS使用不同于HTTP协议的默认端口及一个加密、身份验证层（HTTP与TCP之间）。这个协议的最初研发由网景公司进行，提供了身份验证与加密通信方法，现在它被广泛用于互联网上安全敏感的通信。
+
+这里大概讲解，具体请参考[HTTP深入讲解](https://www.jianshu.com/p/47a0dda18d53)
+
+#### AMQP 协议(互操作性)
+AMQP(Advanced Message Queuing Protocol)，先进消息队列协议，用于业务系统例如PLM，ERP，MES等进行数据交换。
+
+适用范围：最早应用于金融系统之间的交易消息传递，在物联网应用中，主要适用于移动手持设备与后台数据中心的通信和分析。
+
+#### XMPP 协议(即时通信)
+XMPP(Extensible Messaging and Presence Protocol)可扩展通讯和表示协议，XMPP的前身是Jabber，一个开源形式组织产生的网络即时通信协议。XMPP目前被IETF 国际标准组织完成了标准化工作。
+
+适用范围：即时通信的应用程序，还能用在网络管理、内容供稿、协同工具、档案共享、游戏、远端系统监控等。
+
+#### JMS (JavaMessage Service)
+JMS (Java Message Service)，JAVA 消息服务，这是JAVA 平台中著名的消息队列协议。
+
+Java 消息服务(Java Message Service)应用程序接口，是一个Java 平台中关于面向消息中间件(MOM)的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java 消息服务是一个与具体平台无关的API，绝大多数MOM 提供商都对JMS 提供支持。
+
+#### DDS 协议(高可靠性、实时)
+DDS(Data Distribution Service for Real-Time Systems)，面向实时系统的数据分布服务，这是大名鼎鼎的OMG 组织提出的协议，其权威性应该能证明该协议的未来应用前景。
+
+适用范围：分布式高可靠性、实时传输设备数据通信。目前DDS 已经广泛应用于国防、民航、工业控制等领域。
+
+#### CoAP 协议
+CoAP (Constrained Application Protocol)，受限应用协议，应用于无线传感网中协议。
+
+适用范围：CoAP 是简化了HTTP 协议的RESTfulAPI，CoAP 是6LowPAN 协议栈中的应用层协议，它适用于在资源受限的通信的IP 网络。
+
+#### MQTT 协议(低带宽及低功耗)
+详见下文介绍
+
+**总结**
+![通讯协议](https://vinter.oss-cn-shenzhen.aliyuncs.com/blog/iot.png)
+
+## MQTT 协议
+MQTT (Message Queuing Telemetry Transport )，消息队列遥测传输，由IBM 开发的即时通讯协议，相比来说比较适合物联网场景的通讯协议。MQTT 协议采用[发布/订阅模式](http://www.vinterx.com/2017/11/10/publish-subscribe/)，所有的物联网终端都通过TCP 连接到云端，云端通过主题的方式管理各个设备关注的通讯内容，负责将设备与设备之间消息的转发。
+
+MQTT 在协议设计时就考虑到不同设备的计算性能的差异，所以所有的协议都是采用二进制格式编解码，并且编解码格式都非常易于开发和实现。最小的数据包只有2个字节，对于低功耗低速网络也有很好的适应性。有非常完善的QOS 机制，根据业务场景可以选择最多一次、至少一次、刚好一次三种消息送达模式。运行在TCP 协议之上，同时支持TLS(TCP+SSL)协议，并且由于所有数据通信都经过云端，安全性得到了较好地保障。
+
+适用范围：在低带宽、低功耗、不可靠的网络下提供基于云平台的远程设备的数据传输和监控。
+
+MQTT主要有以下三种特点
+
+**发布订阅：**MQTT 协议中主要由三部分组成：发布者（Publisher）、代理（Broker，服务器）、订阅者（Subscriber）。其中，消息的发布者和订阅者都是客户端，消息代理是服务器。
+
+**基于TCP/IP连接：**MQTT是在应用层，在 TCP 传输层之上，因此MQTT 也是基于这个而构建的，提供有序、无损、双向连接；
+
+**QoS（Quality of Service，服务质量）：**三种消息发布服务质量
++ 至多一次，消息发布完全依赖底层 TCP/IP 网络。会发生消息丢失或重复。这一级别可用于如下情况，环境传感器数据，丢失一次读记录无所谓，因为不久后还会有第二次发送。
++ 至少一次，确保消息到达，但消息重复可能会发生。
++ 只有一次，确保消息到达一次。这一级别可用于如下情况，在计费系统中，消息重复或丢失会导致不正确的结果。
+
+**小型传输，开销小：**固定长度的头部是 2 字节，协议交换最小化，对于低功耗低速网络也有很好的适应性。整体上协议可拆分为：**固定头部+可变头部+消息体**，这就是为什么在介绍里说它非常适合在物联网领域，传感器与服务器的通信，信息的收集。
+
+**客户端异常中断的机制：**
++ Last Will：即遗言机制，用于通知同一主题下的其他设备发送遗言的设备已经断开了连接。
++ Testament：遗嘱机制，功能类似于Last Will。
+
+## 参考文献
+
+[联网常见通信协议与通讯协议梳理](https://blog.csdn.net/zhangbijun1230/article/details/80394049)
+
+[MQTT 协议基本介绍](https://www.jianshu.com/p/ecde412d2eeb)

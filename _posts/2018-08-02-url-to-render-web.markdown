@@ -65,12 +65,12 @@ TCP（Transmission Control Protocol）传输控制协议是一种面向连接、
 
 **物理层：**  以二进制数据形式在物理媒体上传输数据，**数据的单位称为比特（bit）**。属于物理层定义的典型规范代表包括：EIA/TIA RS-232、EIA/TIA RS-449、V.35、RJ-45等。
 
-![TCP-IP.jpg](https://upload-images.jianshu.io/upload_images/5097943-8127dd9701ff55a6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![TCP-IP.jpg](https://vinter.oss-cn-shenzhen.aliyuncs.com/blog/tcp.jpg)
 
 **TCP/IP三次握手建立连接，四次挥手断开连接**
-![三次握手.jpg](https://upload-images.jianshu.io/upload_images/5097943-689117dc2fc6fef0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![三次握手.jpg](https://vinter.oss-cn-shenzhen.aliyuncs.com/blog/three.jpg)
 
-![四次挥手.jpg](https://upload-images.jianshu.io/upload_images/5097943-decc0ddfafe4dea8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![四次挥手.jpg](https://vinter.oss-cn-shenzhen.aliyuncs.com/blog/four.jpg)
 
 
 ## 四、HTTP请求和响应
