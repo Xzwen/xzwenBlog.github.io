@@ -1,3 +1,8 @@
+/*!
+ * Vinter Blog v1.7.0 (http://www.vinterx.com)
+ * Copyright 2019 Vinter <669805926@qq.com>
+ */
+
 @media (min-width: 1200px) {
   .post-container,
   .sidebar-container {
@@ -1258,4 +1263,18 @@ img::-moz-selection {
 }
 .page-fullscreen footer .copyright a:hover {
   color: #ddd;
+}
+.swiper-container {
+  height: 400px;
+}
+.swiper-container .swiper-wrapper {
+  height: 100%;
+}
+.swiper-container .swiper-wrapper .swiper-slide {
+  height: 100%;
+}
+.swiper-container .swiper-wrapper .swiper-slide img {
+  margin: 0;
+  width: 100%;
+  height: 100%;
 }

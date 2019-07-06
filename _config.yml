@@ -100,29 +100,45 @@ friends: [
     # },{
     #     title: "前端外刊评论",
     #     href: "http://qianduan.guru/"
-    # },{
-    #     title: "天镶的博客",
-    #     href: "http://lingyu.wang/"
-    # },{
-    #     title: "Luke 的自留地",
-    #     href: "http://hmqk1995.github.io"
-    # },{
-    #     title: "Ebn's Blog",
-    #     href: "http://ebnbin.com/"
-    # },{
-    #     title: "SmdCn's Blog",
-    #     href: "http://blog.smdcn.net"
-    # },{
-    #     title: "David's Game",
-    #     href: "https://www.ruoyaowu.com/"
-    # },{
-    #     title: "DHong Say",
-    #     href: "http://dhong.co"
-    # },{
-    #     title: "尹峰以为",
-    #     href: "http://ingf.github.io/"
-    # },{
-    #     title: "解旻的博客",
-    #     href: "http://xieminis.me/"
     # }
+]
+
+# Swiper
+swiper: [
+    {
+        title: 'guangzhou_towel',
+        url: '/img/about/guangzhou_towel.jpg'
+    },
+    {
+        title: 'guilin',
+        url: '/img/about/guilin.jpg'
+    },
+    {
+        title: 'nanyue',
+        url: '/img/about/nanyue.jpg'
+    },
+    {
+        title: 'yuelu',
+        url: '/img/about/yuelu.jpg'
+    }, 
+    {
+        title: 'yuelushuyuan',
+        url: '/img/about/yuelushuyuan.jpg'
+    },
+    {
+        title: 'yuelushuyuan',
+        url: '/img/about/fenghuang.jpg'
+    },  
+    {
+        title: 'baotuquan',
+        url: '/img/about/baotuquan.jpg'
+    }, 
+    {
+        title: 'juzizhou',
+        url: '/img/about/juzizhou.jpg'
+    }, 
+    {
+        title: 'hainan',
+        url: '/img/about/hainan.jpg'
+    },                       
 ]

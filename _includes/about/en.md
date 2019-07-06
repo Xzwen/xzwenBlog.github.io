@@ -1,13 +1,11 @@
-> Life is not just a matter of sight, but also poetry and distance.
->
-> There are some things in life that you never try your best to do, You never know how good you are.
->
+> Life is not just a matter of sight, but also poetry and distance. 
+> There are some things in life that you never try your best to do, You never know how good you are.    
 > Where there is life, there is learning.
 
 
-Hi, I am Vinter, welcome to my blog.
+Hi, Everybody, I am Vinter, welcome to my blog.
 
-##### Talks
+<!-- ##### Talks -->
 
 <!-- - [Upgrading to Progressive Web Apps][9] · [JSConf China Shanghai 2017](http://2017.jsconf.cn/)
 - Building Progressive Web Apps · [CSDI Guangzhou 2017](http://www.csdisummit.com/)
@@ -31,8 +29,8 @@ Hi, I am Vinter, welcome to my blog.
 [8]: https://yanshuo.io/assets/player/?deck=594d673d570c357d0698a950 "Building PWA"
 [9]: //huangxuan.me/jsconfcn2017/ -->
 
-* [Simple and useful canvas library —— Fabric.js][1]
-* [introducing SSH][2]
+<!-- * [Simple and useful canvas library —— Fabric.js][1]
+* [introducing SSH][2] -->
 
 ![天生我才必有用，千金散尽还复来。](http://vinter.oss-cn-shenzhen.aliyuncs.com/blog/jiangjinjiu.jpg "将进酒")
 When we are born, we will be useful. 
@@ -40,5 +38,5 @@ When we are born, we will be useful.
 ---
 
 
-[1]: //www.vinterx.com/2018/11/18/canvas-fabric/
-[2]: //www.vinterx.com/2018/11/05/two-ssh-in-pc-git/
+<!-- [1]: //www.vinterx.com/2018/11/18/canvas-fabric/
+[2]: //www.vinterx.com/2018/11/05/two-ssh-in-pc-git/ -->

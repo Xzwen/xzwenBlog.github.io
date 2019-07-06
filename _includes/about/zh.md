@@ -1,13 +1,11 @@
-> 生活不止是眼前的苟且，还有诗和远方。
->
-> 人生中有些事情不竭尽全力去做，永远不知道自己有多优秀。
->
+> 生活不止是眼前的苟且，还有诗和远方。    
+> 人生中有些事情不竭尽全力去做，永远不知道自己有多优秀。   
 > 生命不息，学而不止。
 
-Hi，我是谢志文，欢迎来到我的博客。本人多出没于Github、微博、知乎、CSDN、简书、Stack overflow、[博客](https://xzwen.github.io/xzwenBlog.github.io/)等地带，一直吸取能量中，准备释放终极大招。
+大家好，我是谢志文，欢迎来到我的博客。本人多出没于Github、简书、知乎、CSDN、Stack overflow、博客、微博、掘金等地带，从事前后端开发，熟悉多种前后端框架，多年跨平台开发经验，善于性能优化和模块发开发，集宽度与深度与一身的程序猿。学习的道路没有尽头，我在坑里等你。
 
 
-##### Talks
+<!-- ##### Talks -->
 
 <!-- - [Upgrading to Progressive Web Apps][9] · [JSConf CN 上海 2017](http://2017.jsconf.cn/)
 - Building Progressive Web Apps · [CSDI 广州 2017](http://www.csdisummit.com/)
@@ -30,14 +28,13 @@ Hi，我是谢志文，欢迎来到我的博客。本人多出没于Github、微
 [8]: https://yanshuo.io/assets/player/?deck=594d673d570c357d0698a950 "Building PWA"
 [9]: //huangxuan.me/jsconfcn2017/ -->
 
-* [简单好用的canvas库 —— Fabric.js][1]
-* [系统介绍PC端设置SSH][2]
+<!-- * [简单好用的canvas库 —— Fabric.js][1]
+* [系统介绍PC端设置SSH][2] -->
 
 ![天生我才必有用，千金散尽还复来。](http://vinter.oss-cn-shenzhen.aliyuncs.com/blog/jiangjinjiu.jpg "将进酒")
 天生我材必有用，千金散尽还复来
 
 ---
 
-
-[1]: //www.vinterx.com/2018/11/18/canvas-fabric/
-[2]: //www.vinterx.com/2018/11/05/two-ssh-in-pc-git/
+<!-- [1]: //www.vinterx.com/2018/11/18/canvas-fabric/
+[2]: //www.vinterx.com/2018/11/05/two-ssh-in-pc-git/ -->
