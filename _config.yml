@@ -59,6 +59,8 @@ disqus_username: Vinter
 # Netease settings
 netease_comment: false
 
+# gittalk settings
+gittalk: true
 
 
 # Analytics settings
