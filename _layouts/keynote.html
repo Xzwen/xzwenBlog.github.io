@@ -62,7 +62,7 @@ layout: default
 
 				{{ content }}
 
-                <hr style="visibility: hidden;">
+                <hr/>
 
                 <ul class="pager">
                     {% if page.previous.url %}
@@ -83,22 +83,18 @@ layout: default
                     {% endif %}
                 </ul>
 
-                {% if site.disqus_username %}
-                <!-- disqus 评论框 start -->
-                <div class="comment">
-                    <div id="disqus_thread" class="disqus-thread">
-
-                    </div>
-                </div>
-                <!-- disqus 评论框 end -->
+                {% if site.gittalk %}
+                <hr />
+                <!-- 容器 -->
+                <div id="gitalk-container"></div>
                 {% endif %}
 
             </div>
 
             <!-- Sidebar Container -->
-            <div class="sidebar-container
+            <!-- <div class="sidebar-container
                 col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1 ">
+                col-md-10 col-md-offset-1 "> -->
 
                 <!-- Featured Tags -->
                 <!-- {% if site.featured-tags %}
@@ -118,7 +114,7 @@ layout: default
                 {% endif %} -->
 
                 <!-- Friends Blog -->
-                {% if site.friends %}
+                <!-- {% if site.friends %}
                 <hr>
                 <h5>FRIENDS</h5>
                 <ul class="list-inline">
@@ -126,8 +122,8 @@ layout: default
                         <li><a href="{{friend.href}}">{{friend.title}}</a></li>
                     {% endfor %}
                 </ul>
-                {% endif %}
-            </div>
+                {% endif %} -->
+            <!-- </div> -->
         </div>
     </div>
 </article>
@@ -155,11 +151,31 @@ layout: default
     resize();
 </script>
 
+<!-- gittalk评论 -->
+{% if site.gittalk %}
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.11.0/js/md5.min.js"></script>
+<!-- 生成 gitalk 插件 -->
+<script>
+    var gitalk = new Gitalk({
+        clientID: '856d87c211e5fb796391', //Client ID
 
+        clientSecret: '5317315443b4edfbca0bcff8a6d47a86bc985a59', //Client Secret
+
+        repo: 'xzwenBlog.github.io',//仓库名称
+        owner: 'Xzwen',//仓库拥有者
+        admin: ['Xzwen'],
+        id: md5(location.href),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+{% endif %}
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次)
 {% if site.disqus_username %}
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "{{site.disqus_username}}";
     var disqus_identifier = "{{page.id}}";
     var disqus_url = "{{site.url}}{{page.url}}";
@@ -170,8 +186,7 @@ layout: default
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<!-- disqus 公共JS代码 end -->
-{% endif %}
+{% endif %} -->
 
 
 {% if site.anchorjs %}
